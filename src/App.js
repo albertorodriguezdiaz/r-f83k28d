@@ -1,12 +1,28 @@
-import React, { Component } from 'react';
+import React, { Component} from 'react';
 import './App.css';
 
 class App extends Component {
-  render() {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      numero: 0,
+      show: true
+    };
+  }
+
+  IncrementarNumero = () => {
+    this.setState({ numero: this.state.numero + 1 });
+  }
+
+   render() {
     return (
       <div>
-        <span className="value">0</span>
-        <button id="inc">Incrementa</button>
+        <span className="value">{this.state.numero}</span>
+        <button 
+          onClick={this.IncrementarNumero}
+          id="inc"
+        >Incrementa</button>
       </div>
     );
   }
